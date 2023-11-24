@@ -3,11 +3,14 @@
     class="container d-grid gap-3 align-items-center"
     style="grid-template-columns: 1fr 2fr"
   >
-    <a href="/" class="d-flex" style="width: max-content">
+    <a [routerLink]="['/']" class="d-flex" style="width: max-content">
       <img src="../../assets/UgHorizontalColor.svg" alt="" width="200" />
     </a>
 
-    <div class="d-flex align-items-center">
+    <div
+      class="d-grid gap-3 align-items-center"
+      style="grid-template-columns: 1fr max-content max-content"
+    >
       <form class="w-100 me-3" role="search">
         <input
           type="search"
@@ -16,6 +19,14 @@
           aria-label="Search"
         />
       </form>
+
+      <a
+        [routerLink]="['/post-form']"
+        class="btn btn-primary"
+        style="height: 38px; width: fit-content"
+      >
+        Nuevo Blog
+      </a>
 
       <div class="flex-shrink-0 dropdown">
         <a
@@ -33,9 +44,13 @@
           />
         </a>
         <ul class="dropdown-menu text-small shadow">
-          <li><a class="dropdown-item" href="/user-profile">Perfil</a></li>
+          <li>
+            <a class="dropdown-item" [routerLink]="['/user-profile']">Perfil</a>
+          </li>
           <li><hr class="dropdown-divider" /></li>
-          <li><a class="dropdown-item" href="/login">Cerrar sesión</a></li>
+          <li>
+            <a class="dropdown-item" [routerLink]="['/login']">Cerrar sesión</a>
+          </li>
         </ul>
       </div>
     </div>
