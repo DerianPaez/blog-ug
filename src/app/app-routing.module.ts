@@ -8,6 +8,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { ContactComponent } from './contact/contact.component';
 import { PostComponent } from './post/post.component';
 import { PostFormComponent } from './post-form/post-form.component';
+import { CategoryListComponent } from './category-list/category-list.component';
 
 const routes: Routes = [
   {
@@ -41,6 +42,10 @@ const routes: Routes = [
   {
     path: 'post-form',
     component: PostFormComponent,
+  },
+  {
+    path: 'category-list',
+    component: CategoryListComponent,
   },
 ];
 

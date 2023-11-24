@@ -17,6 +17,7 @@ import { PostFormComponent } from './post-form/post-form.component';
 import { PostComponent } from './post/post.component';
 import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { CategoryListComponent } from './category-list/category-list.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     PostComponent,
     FooterComponent,
     SidebarComponent,
+    CategoryListComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
