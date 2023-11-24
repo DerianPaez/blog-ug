@@ -12,4 +12,5 @@ export class PostCardComponent {
   @Input() date: string = '';
   @Input() desc: string = '';
   @Input() img?: string = '';
+  @Input() link: string = '';
 }
