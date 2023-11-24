@@ -9,6 +9,13 @@ import { RegisterComponent } from './register/register.component';
 import { PostCardComponent } from './post-card/post-card.component';
 import { HeaderComponent } from './header/header.component';
 import { LayoutComponent } from './layout/layout.component';
+import { PasswordRecoveryComponent } from './password-recovery/password-recovery.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { ContactComponent } from './contact/contact.component';
+import { PostListComponent } from './post-list/post-list.component';
+import { PostFormComponent } from './post-form/post-form.component';
+import { PostComponent } from './post/post.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +26,13 @@ import { LayoutComponent } from './layout/layout.component';
     PostCardComponent,
     HeaderComponent,
     LayoutComponent,
+    PasswordRecoveryComponent,
+    UserProfileComponent,
+    ContactComponent,
+    PostListComponent,
+    PostFormComponent,
+    PostComponent,
+    FooterComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
