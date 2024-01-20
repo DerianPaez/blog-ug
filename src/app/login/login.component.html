@@ -1,6 +1,6 @@
 <main class="form-signin p-2">
   <div class="form-signin-container">
-    <form>
+    <form (ngSubmit)="onSubmit()">
       <img
         class="mb-4"
         src="../assets/UgHorizontalColor.svg"
@@ -16,6 +16,8 @@
           class="form-control"
           id="floatingInput"
           placeholder="name@example.com"
+          name="email"
+          [(ngModel)]="user.email"
         />
         <label for="floatingInput">Correo</label>
       </div>
@@ -25,19 +27,20 @@
           class="form-control"
           id="floatingPassword"
           placeholder="Password"
+          name="password"
+          [(ngModel)]="user.password"
         />
         <label for="floatingPassword">Contraseña</label>
       </div>
       <a [routerLink]="['/password-recovery']" class="d-block mt-2 w-100"
         >¿Olvidaste la contraseña?</a
       >
-      <a [routerLink]="['/']" class="btn btn-primary w-100 py-2 mt-4"
-        >Iniciar Sesión</a
-      >
+      <button type="submit" class="btn btn-primary w-100 py-2 mt-4">
+        Iniciar Sesión
+      </button>
       <a [routerLink]="['/register']" class="d-block text-center mt-2 w-100"
         >Crear cuenta</a
       >
-      <!-- <button class="btn btn-primary w-100 py-2 mt-4">Iniciar Sesión</button> -->
       <p class="mt-5 mb-3 text-body-secondary text-center">© 2023</p>
     </form>
   </div>

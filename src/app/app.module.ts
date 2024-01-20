@@ -18,6 +18,9 @@ import { PostComponent } from './post/post.component';
 import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { CategoryListComponent } from './category-list/category-list.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { AuthService } from './services/auth/auth.service';
 
 @NgModule({
   declarations: [
@@ -38,8 +41,8 @@ import { CategoryListComponent } from './category-list/category-list.component';
     SidebarComponent,
     CategoryListComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
-  providers: [],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  providers: [AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
