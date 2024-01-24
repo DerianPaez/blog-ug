@@ -18,9 +18,9 @@ export class BlogService {
     return this.http.get<any>(`${this.blogUrl}/${id}`);
   }
 
-  // createBlog(blogData: { title: string; content: string }) {
-  //   return this.http.post<any>(this.blogUrl, blogData);
-  // }
+  createBlog(blogData: { title: string; content: string }) {
+    return this.http.post<any>(this.blogUrl, blogData);
+  }
 
   // updateBlog(id: string, blogData: { title: string; content: string }) {
   //   return this.http.put<any>(`${this.blogUrl}/${id}`, blogData);
