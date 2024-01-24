@@ -3,7 +3,7 @@
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a [routerLink]="['/']">Home</a></li>
       <li class="breadcrumb-item active" aria-current="page">
-        Inteligencia Artificial en la Web Moderna
+        {{ post?.title }}
       </li>
     </ol>
   </nav>
@@ -12,105 +12,10 @@
     <div class="col-md-8">
       <article class="blog-post">
         <h2 class="display-5 link-body-emphasis mb-1">
-          Inteligencia Artificial en la Web Moderna
+          {{ post?.title }}
         </h2>
-        <p class="blog-post-meta">
-          5, Noviembre 2023 por <a href="#">Autor</a>
-        </p>
-
-        <p>
-          La Inteligencia Artificial (IA) está redefiniendo el desarrollo web,
-          ofreciendo una personalización y automatización sin precedentes para
-          una experiencia de usuario revolucionaria.
-        </p>
-        <hr />
-        <p>
-          Con la IA, las plataformas web se vuelven más interactivas y
-          eficientes. Los algoritmos de aprendizaje automático y los chatbots
-          son solo el inicio de este cambio paradigmático.
-        </p>
-        <h2>La Era de la Personalización Web</h2>
-        <p>
-          La IA puede personalizar la experiencia del usuario en tiempo real,
-          proporcionando recomendaciones y contenido relevante basado en el
-          análisis de comportamiento.
-        </p>
-        <blockquote class="blockquote">
-          <p>
-            "La IA está transformando la interacción entre máquinas y la forma
-            en que estas enriquecen la experiencia web".
-          </p>
-        </blockquote>
-        <p>
-          Esta interacción inteligente es el futuro de las aplicaciones web,
-          haciendo que sean más intuitivas y poderosas.
-        </p>
-        <h3>Automatización Impulsada por IA</h3>
-        <p>
-          Al automatizar tareas, la IA libera a los desarrolladores para
-          enfocarse en la innovación. Entre las tareas automatizadas se
-          incluyen:
-        </p>
-        <ul>
-          <li>Optimización del backend.</li>
-          <li>Mejoras en la seguridad con detección proactiva de amenazas.</li>
-          <li>Pruebas y depuración de código automatizadas.</li>
-        </ul>
-        <p>Estamos apenas al comienzo de esta transformación tecnológica.</p>
-        <pre><code>const ai = new ArtificialIntelligence('web_development');</code></pre>
-        <p>
-          La IA está marcando un nuevo estándar en la web, uno que todos los
-          desarrolladores deben estar preparados para adoptar.
-        </p>
-        <h2>Impacto en la UX</h2>
-        <p>
-          Más allá del código, la IA tiene un profundo impacto en la experiencia
-          del usuario (UX). Los sistemas que se adaptan y responden a las
-          necesidades del usuario están marcando la pauta para la nueva ola de
-          diseño web.
-        </p>
-        <ol>
-          <li>Interfaces de usuario que se adaptan dinámicamente.</li>
-          <li>
-            Contenidos que se ajustan a los intereses y comportamientos del
-            usuario.
-          </li>
-          <li>
-            Servicios de atención al cliente automatizados y personalizados.
-          </li>
-        </ol>
-        <p>
-          Con la IA, la UX ya no es estática; es un entorno dinámico y en
-          constante evolución.
-        </p>
-        <h2>Desafíos y Consideraciones</h2>
-        <p>
-          La integración de IA en la web no está exenta de desafíos. La
-          privacidad del usuario, la ética en el diseño de algoritmos y la
-          accesibilidad son consideraciones cruciales.
-        </p>
-        <dl>
-          <dt>Privacidad de Datos</dt>
-          <dd>
-            Garantizar que la recopilación y el uso de datos se manejen de
-            manera responsable.
-          </dd>
-          <dt>Ética Algorítmica</dt>
-          <dd>
-            Asegurar que los algoritmos actúen sin sesgos y de forma justa.
-          </dd>
-          <dt>Accesibilidad</dt>
-          <dd>
-            Crear experiencias web que sean inclusivas para todos los usuarios,
-            independientemente de sus capacidades.
-          </dd>
-        </dl>
-        <p>
-          La IA es una herramienta poderosa, pero debe usarse con consideración
-          y respeto por los usuarios finales.
-        </p>
-        <h3>Conclusión</h3>
-        <p>La IA está estableciendo nuevos</p>
+        <p class="blog-post-meta">{{ post?.date }} por <a href="#">Autor</a></p>
+        <p>{{ post?.content }}</p>
       </article>
     </div>
 

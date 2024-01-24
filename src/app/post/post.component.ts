@@ -1,10 +1,54 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { BlogService } from '../services/blog/blog.service';
+import { Post, ResponsePost } from '../models/post.model';
+import formatDateToUI from '../utils/date-utils';
 
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
-  styleUrls: ['./post.component.css']
+  styleUrls: ['./post.component.css'],
 })
-export class PostComponent {
+export class PostComponent implements OnInit {
+  postId?: number;
+  post?: Post;
 
+  constructor(
+    private route: ActivatedRoute,
+    private blogService: BlogService
+  ) {}
+
+  ngOnInit() {
+    const id = this.route.snapshot.paramMap.get('id');
+    this.postId = id ? +id : undefined;
+
+    if (!this.postId) {
+      alert('No se ha especificado un post para mostrar');
+      return;
+    }
+
+    this.loadBlogPost(this.postId);
+  }
+
+  loadBlogPost(id: number) {
+    this.blogService.getBlog(id).subscribe({
+      next: (post: ResponsePost) => {
+        this.post = {
+          id: post.id.toString(),
+          category: post.categorias?.[0]?.nombre ?? '',
+          title: post.titulo,
+          date: formatDateToUI(post.fechaPublicacion.toString()),
+          desc: post.descripcion,
+          img: post.imagen,
+          content: post.contenido,
+        };
+      },
+      error: (error) => {
+        console.error(`Error al obtener post: ${id}`, error);
+        alert(
+          `Error al obtener el post ${id} desde el servidor, intente nuevamente más tarde`
+        );
+      },
+    });
+  }
 }

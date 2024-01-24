@@ -36,7 +36,7 @@ const routes: Routes = [
     component: ContactComponent,
   },
   {
-    path: 'post',
+    path: 'post/:id',
     component: PostComponent,
   },
   {
