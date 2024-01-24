@@ -1,6 +1,6 @@
 <main class="form-signin p-2">
   <div class="form-signin-container">
-    <form (ngSubmit)="onSubmit()">
+    <form (ngSubmit)="onSubmit()" #form="ngForm">
       <img
         class="mb-4"
         src="../assets/UgHorizontalColor.svg"
@@ -18,6 +18,8 @@
           placeholder="name@example.com"
           name="email"
           [(ngModel)]="user.email"
+          required
+          email
         />
         <label for="floatingInput">Correo</label>
       </div>
@@ -29,13 +31,18 @@
           placeholder="Password"
           name="password"
           [(ngModel)]="user.password"
+          required
         />
         <label for="floatingPassword">Contraseña</label>
       </div>
       <a [routerLink]="['/password-recovery']" class="d-block mt-2 w-100"
         >¿Olvidaste la contraseña?</a
       >
-      <button type="submit" class="btn btn-primary w-100 py-2 mt-4">
+      <button
+        type="submit"
+        class="btn btn-primary w-100 py-2 mt-4"
+        [disabled]="!form.valid"
+      >
         Iniciar Sesión
       </button>
       <a [routerLink]="['/register']" class="d-block text-center mt-2 w-100"
