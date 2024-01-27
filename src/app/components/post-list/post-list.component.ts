@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { BlogService } from '../services/blog/blog.service';
-import { Post, PostCard, ResponsePost } from '../models/post.model';
-import formatDateToUI from '../utils/date-utils';
+import { BlogService } from '../../services/blog/blog.service';
+import { PostCard, ResponsePost } from '../../models/blog.model';
+import formatDateToUI from '../../utils/date-utils';
 
 @Component({
   selector: 'app-post-list',

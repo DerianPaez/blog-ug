@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-import { HomeComponent } from './home/home.component';
-import { PasswordRecoveryComponent } from './password-recovery/password-recovery.component';
-import { UserProfileComponent } from './user-profile/user-profile.component';
-import { ContactComponent } from './contact/contact.component';
-import { PostComponent } from './post/post.component';
-import { PostFormComponent } from './post-form/post-form.component';
-import { CategoryListComponent } from './category-list/category-list.component';
+import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { HomeComponent } from './pages/home/home.component';
+import { PasswordRecoveryComponent } from './pages/password-recovery/password-recovery.component';
+import { UserProfileComponent } from './pages/user-profile/user-profile.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { PostComponent } from './pages/post/post.component';
+import { PostFormComponent } from './pages/post-form/post-form.component';
+import { CategoryListComponent } from './pages/category-list/category-list.component';
 
 const routes: Routes = [
   {
