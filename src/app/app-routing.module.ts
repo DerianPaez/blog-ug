@@ -9,10 +9,12 @@ import { ContactComponent } from './components/contact/contact.component';
 import { PostComponent } from './pages/post/post.component';
 import { PostFormComponent } from './pages/post-form/post-form.component';
 import { CategoryListComponent } from './pages/category-list/category-list.component';
+import { authGuard } from './auth.guard';
 
 const routes: Routes = [
   {
     path: '',
+    pathMatch: 'full',
     component: HomeComponent,
   },
   {
@@ -30,6 +32,7 @@ const routes: Routes = [
   {
     path: 'user-profile',
     component: UserProfileComponent,
+    canActivate: [authGuard],
   },
   {
     path: 'contact',
@@ -42,6 +45,7 @@ const routes: Routes = [
   {
     path: 'post-form',
     component: PostFormComponent,
+    canActivate: [authGuard],
   },
   {
     path: 'category-list',
