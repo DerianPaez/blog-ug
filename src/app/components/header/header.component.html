@@ -20,15 +20,27 @@
         />
       </form>
 
-      <a
-        [routerLink]="['/post-form']"
-        class="btn btn-primary"
-        style="height: 38px; width: fit-content"
-      >
-        Nuevo Blog
-      </a>
+      <div *ngIf="isLogged; else elseBlock">
+        <a
+          [routerLink]="['/post-form']"
+          class="btn btn-primary"
+          style="height: 38px; width: fit-content"
+        >
+          Nuevo Blog
+        </a>
+      </div>
 
-      <div class="flex-shrink-0 dropdown">
+      <ng-template #elseBlock>
+        <a
+          [routerLink]="['/login']"
+          class="btn btn-primary"
+          style="height: 38px; width: fit-content"
+        >
+          Iniciar sesión
+        </a>
+      </ng-template>
+
+      <div *ngIf="isLogged" class="flex-shrink-0 dropdown">
         <a
           href="#"
           class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
@@ -49,7 +61,9 @@
           </li>
           <li><hr class="dropdown-divider" /></li>
           <li>
-            <a class="dropdown-item" [routerLink]="['/login']">Cerrar sesión</a>
+            <button (click)="logout()" class="dropdown-item">
+              Cerrar sesión
+            </button>
           </li>
         </ul>
       </div>

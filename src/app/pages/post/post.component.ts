@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { BlogService } from '../services/blog/blog.service';
-import { Post, ResponsePost } from '../models/post.model';
-import formatDateToUI from '../utils/date-utils';
+import { BlogService } from '../../services/blog/blog.service';
+import { Post, ResponsePost } from '../../models/blog.model';
+import formatDateToUI from '../../utils/date-utils';
 
 @Component({
   selector: 'app-post',
