@@ -14,7 +14,16 @@
         <h2 class="display-5 link-body-emphasis mb-1">
           {{ post?.title }}
         </h2>
-        <p class="blog-post-meta">{{ post?.date }} por <a href="#">Autor</a></p>
+        <p class="blog-post-meta">{{ post?.date }} por {{ post?.author }}</p>
+        <div class="col-auto d-none d-lg-block mb-4">
+          <img
+            src="{{ post?.img }}"
+            alt="{{ post?.title }}"
+            width="100%"
+            height="400"
+            class="object-fit-cover"
+          />
+        </div>
         <p>{{ post?.content }}</p>
       </article>
     </div>

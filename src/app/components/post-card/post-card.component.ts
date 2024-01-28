@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-post-card',
@@ -13,4 +13,15 @@ export class PostCardComponent {
   @Input() desc: string = '';
   @Input() img?: string = '';
   @Input() link: string = '';
+  @Input() isEditable?: boolean = false;
+  @Output() onDelete: EventEmitter<string> = new EventEmitter();
+  @Output() onUpdate: EventEmitter<string> = new EventEmitter();
+
+  deletePost() {
+    this.onDelete.emit(this.id);
+  }
+
+  updatePost() {
+    this.onUpdate.emit(this.id);
+  }
 }

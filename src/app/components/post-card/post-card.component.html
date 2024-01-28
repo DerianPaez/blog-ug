@@ -6,11 +6,19 @@
       category
     }}</strong>
     <h3 class="mb-0">{{ title }}</h3>
-    <div class="mb-1 text-body-secondary">{{ date }}</div>
+    <br />
     <p class="card-text mb-auto">
       {{ desc }}
     </p>
     <a [routerLink]="['/post', id]" class="icon-link gap-1">Leer más</a>
+    <div *ngIf="isEditable" class="d-flex gap-1 mt-2">
+      <button class="w-auto btn btn-primary btn-sm" (click)="updatePost()">
+        Editar
+      </button>
+      <button class="w-auto btn btn-danger btn-sm" (click)="deletePost()">
+        Eliminar
+      </button>
+    </div>
   </div>
   <div class="col-auto d-none d-lg-block">
     <img

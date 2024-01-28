@@ -11,7 +11,9 @@ import formatDateToUI from '../../utils/date-utils';
 })
 export class PostComponent implements OnInit {
   postId?: number;
-  post?: Post;
+  post?: Post & {
+    author: string;
+  };
 
   constructor(
     private route: ActivatedRoute,
@@ -35,12 +37,13 @@ export class PostComponent implements OnInit {
       next: (post: ResponsePost) => {
         this.post = {
           id: post.id.toString(),
-          category: post.categorias?.[0]?.nombre ?? '',
+          category: post.categoria ?? '',
           title: post.titulo,
-          date: formatDateToUI(post.fechaPublicacion.toString()),
+          date: '',
           desc: post.descripcion,
           img: post.imagen,
           content: post.contenido,
+          author: post.usuario.nombre,
         };
       },
       error: (error) => {
