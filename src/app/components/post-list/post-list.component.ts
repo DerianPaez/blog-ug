@@ -18,7 +18,7 @@ export class PostListComponent implements OnInit {
       next: (data: ResponsePost[]) => {
         this.posts = data.map((post) => ({
           id: post.id.toString(),
-          category: post.categorias?.[0]?.nombre ?? '',
+          category: post.categoria ?? '',
           title: post.titulo,
           date: formatDateToUI(post.fechaPublicacion.toString()),
           desc: post.descripcion,

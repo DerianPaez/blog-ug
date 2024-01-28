@@ -20,8 +20,13 @@ export type ResponsePost = {
   usuarioId: number;
   usuario: any;
   comentarios: any;
-  categorias: ResponseCategory[];
+  categoria?: string;
 };
+
+export type RequestPost = Omit<
+  ResponsePost,
+  'id' | 'fechaPublicacion' | 'usuarioId' | 'usuario' | 'comentarios'
+>;
 
 export type ResponseCategory = {
   id: number;

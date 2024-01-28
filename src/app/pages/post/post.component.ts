@@ -35,9 +35,9 @@ export class PostComponent implements OnInit {
       next: (post: ResponsePost) => {
         this.post = {
           id: post.id.toString(),
-          category: post.categorias?.[0]?.nombre ?? '',
+          category: post.categoria ?? '',
           title: post.titulo,
-          date: formatDateToUI(post.fechaPublicacion.toString()),
+          date: '',
           desc: post.descripcion,
           img: post.imagen,
           content: post.contenido,

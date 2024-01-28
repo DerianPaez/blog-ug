@@ -1,8 +1,8 @@
 <app-layout>
   <div class="row g-5">
     <div class="col-12">
-      <h4 class="mb-3">Mi perfil</h4>
-      <form class="needs-validation" novalidate="">
+      <h4 class="mb-3">Publicaciones</h4>
+      <form class="needs-validation" (ngSubmit)="onSubmit()" #form="ngForm">
         <div class="row g-3">
           <div class="col-12">
             <label for="firstName" class="form-label">Título</label>
@@ -11,8 +11,8 @@
               class="form-control"
               id="firstName"
               placeholder=""
-              value=""
-              required=""
+              name="titulo"
+              [(ngModel)]="data.titulo"
             />
             <div class="invalid-feedback">Título requerido.</div>
           </div>
@@ -24,8 +24,8 @@
               class="form-control"
               id="lastName"
               placeholder=""
-              value=""
-              required=""
+              name="descripcion"
+              [(ngModel)]="data.descripcion"
             />
             <div class="invalid-feedback">Descripción requerida.</div>
           </div>
@@ -36,13 +36,20 @@
               class="form-control"
               id="FormControlTextarea"
               rows="3"
+              name="contenido"
+              [(ngModel)]="data.contenido"
             ></textarea>
             <div class="invalid-feedback">Ingresar un correo válido</div>
           </div>
 
           <div class="col-12">
-            <label for="country" class="form-label">Categoría</label>
-            <select class="form-select" id="country" required="">
+            <label for="category" class="form-label">Categoría</label>
+            <select
+              class="form-select"
+              id="category"
+              name="categoria"
+              [(ngModel)]="data.categoria"
+            >
               <option value="">Elegir...</option>
               <option>Tecnología</option>
               <option>Productividad</option>
@@ -57,20 +64,42 @@
             </select>
             <div class="invalid-feedback">Seleccione una categoría válida.</div>
           </div>
+
+          <div class="col-12">
+            <label for="fileUpload" class="form-label">Subir Archivo</label>
+            <input
+              type="file"
+              class="form-control"
+              id="fileUpload"
+              (change)="onFileSelected($event)"
+            />
+          </div>
         </div>
 
         <hr class="my-4" />
-        <!-- <button class="w-auto btn btn-primary btn-lg" type="submit">
-          Publicar
-        </button> -->
-        <a
-          [routerLink]="['/']"
-          class="w-auto btn btn-primary btn-lg"
-          type="submit"
-        >
-          Publicar
-        </a>
+        <button class="w-auto btn btn-primary btn-lg" type="submit">
+          <div *ngIf="!inEdition; else elseBlock">Publicar</div>
+          <ng-template #elseBlock> Actualizar </ng-template>
+        </button>
       </form>
+    </div>
+
+    <div *ngIf="postList.length === 0">
+      <p>No hay blogs disponibles en este momento.</p>
+    </div>
+
+    <div *ngFor="let post of postList">
+      <app-post-card
+        [id]="post.id"
+        [category]="post.category"
+        [title]="post.title"
+        [date]="post.date"
+        [desc]="post.desc"
+        [img]="post.img"
+        [isEditable]="true"
+        (onDelete)="handleDeletePost($event)"
+        (onUpdate)="handleUpdatePost($event)"
+      ></app-post-card>
     </div>
   </div>
 </app-layout>

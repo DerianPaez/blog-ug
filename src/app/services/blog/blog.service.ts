@@ -1,12 +1,14 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { RequestPost } from 'src/app/models/blog.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BlogService {
   private blogUrl = 'https://localhost:7242/api/Post';
+  private imageUrl = 'https://localhost:7242/api/Image/upload-image';
 
   constructor(private http: HttpClient) {}
 
@@ -14,60 +16,58 @@ export class BlogService {
     return this.http.get<any>(this.blogUrl);
   }
 
+  getBlogsByUserAuthenticated(): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      }),
+    };
+    return this.http.get<any>(`${this.blogUrl}/by-user`, httpOptions);
+  }
+
   getBlog(id: number) {
     return this.http.get<any>(`${this.blogUrl}/${id}`);
   }
 
-  createBlog(blogData: { title: string; content: string }) {
-    return this.http.post<any>(this.blogUrl, blogData);
+  uploadImage(image: File) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      }),
+    };
+    const formData = new FormData();
+    formData.append('image', image);
+    return this.http.post<any>(this.imageUrl, formData, httpOptions);
   }
 
-  // updateBlog(id: string, blogData: { title: string; content: string }) {
-  //   return this.http.put<any>(`${this.blogUrl}/${id}`, blogData);
-  // }
+  createBlog(blogData: RequestPost) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      }),
+    };
+    return this.http.post<any>(this.blogUrl, blogData, httpOptions);
+  }
 
-  // deleteBlog(id: string) {
-  //   return this.http.delete<any>(`${this.blogUrl}/${id}`);
-  // }
+  deleteBlog(postId: string) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      }),
+    };
+    return this.http.delete<any>(`${this.blogUrl}/${postId}`, httpOptions);
+  }
 
-  // likeBlog(id: string) {
-  //   return this.http.put<any>(`${this.blogUrl}/like/${id}`, {});
-  // }
-
-  // unlikeBlog(id: string) {
-  //   return this.http.put<any>(`${this.blogUrl}/unlike/${id}`, {});
-  // }
-
-  // createComment(id: string, commentData: { content: string }) {
-  //   return this.http.post<any>(`${this.blogUrl}/comment/${id}`, commentData);
-  // }
-
-  // deleteComment(blogId: string, commentId: string) {
-  //   return this.http.delete<any>(
-  //     `${this.blogUrl}/comment/${blogId}/${commentId}`
-  //   );
-  // }
-
-  // updateComment(
-  //   blogId: string,
-  //   commentId: string,
-  //   commentData: { content: string }
-  // ) {
-  //   return this.http.put<any>(
-  //     `${this.blogUrl}/comment/${blogId}/${commentId}`,
-  //     commentData
-  //   );
-  // }
-
-  // getComments(id: string) {
-  //   return this.http.get<any>(`${this.blogUrl}/comment/${id}`);
-  // }
-
-  // getLikes(id: string) {
-  //   return this.http.get<any>(`${this.blogUrl}/like/${id}`);
-  // }
-
-  // getBlogByUserId(id: string) {
-  //   return this.http.get<any>(`${this.blogUrl}/user/${id}`);
-  // }
+  updateBlog(postId: string, blogData: RequestPost) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      }),
+    };
+    return this.http.put<any>(
+      `${this.blogUrl}/${postId}`,
+      blogData,
+      httpOptions
+    );
+  }
 }
