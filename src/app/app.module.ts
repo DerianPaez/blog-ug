@@ -21,6 +21,7 @@ import { CategoryListComponent } from './pages/category-list/category-list.compo
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from './services/auth/auth.service';
+import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { AuthService } from './services/auth/auth.service';
     FooterComponent,
     SidebarComponent,
     CategoryListComponent,
+    ResetPasswordComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [AuthService],

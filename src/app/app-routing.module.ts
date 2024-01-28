@@ -10,6 +10,7 @@ import { PostComponent } from './pages/post/post.component';
 import { PostFormComponent } from './pages/post-form/post-form.component';
 import { CategoryListComponent } from './pages/category-list/category-list.component';
 import { authGuard } from './auth.guard';
+import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
 
 const routes: Routes = [
   {
@@ -50,6 +51,10 @@ const routes: Routes = [
   {
     path: 'category-list',
     component: CategoryListComponent,
+  },
+  {
+    path: 'reset-password/:email',
+    component: ResetPasswordComponent,
   },
 ];
 
