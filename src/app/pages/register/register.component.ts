@@ -19,7 +19,7 @@ export class RegisterComponent {
       next: (data) => {
         console.log(data);
         alert('Registro exitoso.');
-        this.router.navigate(['/']);
+        this.router.navigate(['/login']);
       },
       error: (error) => {
         console.error(error);

@@ -11,7 +11,9 @@ import formatDateToUI from '../../utils/date-utils';
 })
 export class PostComponent implements OnInit {
   postId?: number;
-  post?: Post;
+  post?: Post & {
+    author: string;
+  };
 
   constructor(
     private route: ActivatedRoute,
@@ -41,6 +43,7 @@ export class PostComponent implements OnInit {
           desc: post.descripcion,
           img: post.imagen,
           content: post.contenido,
+          author: post.usuario.nombre,
         };
       },
       error: (error) => {
